@@ -9,12 +9,12 @@ $(XMLDATA)
 set identity_insert t_CoreTable2 on
 merge into [dbo].t_CoreTable2 as tc
   using (
-	select Id, TypeOper, Caption
+	select Id
 	from openjson (@json_t_CoreTable2)  
 	with (   
 			Id int '$.Id'
 )) s (Id) ON s.Id = tc.Id
-when matched then update set TypeOper = s.TypeOper, Caption = s.Caption
+--when matched then update set TypeOper = s.TypeOper, Caption = s.Caption
 
 when not matched by target
 then insert (Id)

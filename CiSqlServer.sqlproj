@@ -61,6 +61,7 @@
     <Folder Include="Programmability" />
     <Folder Include="Programmability\Stored Procedures" />
     <Folder Include="Data" />
+    <Folder Include="DeployData" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="Tables\top_Chains.sql" />
@@ -76,8 +77,11 @@
     <None Include="Data\top_Chains.json">
       <CopyToOutputDirectory>DoNotCopy</CopyToOutputDirectory>
     </None>
+    <None Include="Data\t_CoreTable2.json" />
   </ItemGroup>
   <ItemGroup>
     <PostDeploy Include="Script.PostDeploymentPopulateData.sql" />
+    <None Include="DeployData\t_CoreTable2.PostDeployment.sql" />
+    <None Include="DeployData\top_Chains.PostDeployment.sql" />
   </ItemGroup>
 </Project>
